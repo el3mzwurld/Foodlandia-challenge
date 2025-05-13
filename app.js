@@ -50,6 +50,8 @@ cards.forEach((card) => {
     //check if the quantity is greater than 0 before decrementing
     if (cart[item_name].quanity > 0) {
       cart[item_name].quanity--;
+    } else {
+      return;
     }
     quantityDisplay.textContent = cart[item_name].quanity;
     if (cart[item_name].quanity === 0) {
@@ -178,3 +180,12 @@ function initCart() {
   // Reset cart count
   if (cartCount) cartCount.textContent = "(0)";
 }
+
+const confirmBtn = document.querySelector(".checkout--pay");
+const modal = document.querySelector(".confirmation--modal");
+const body = document.querySelector(".main--container"); // or a wrapper if you have one
+
+confirmBtn.addEventListener("click", () => {
+  modal.style.display = "flex"; // or "block", based on how it's styled
+  body.classList.add("blur");
+});
