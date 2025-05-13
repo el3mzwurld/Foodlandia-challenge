@@ -1,6 +1,8 @@
 //create an object to hold individual cart items
 const cart = {};
 
+initCart();
+
 //select all the cards to collect individual information
 const cards = document.querySelectorAll(".card");
 
@@ -50,6 +52,9 @@ cards.forEach((card) => {
       cart[item_name].quanity--;
     }
     quantityDisplay.textContent = cart[item_name].quanity;
+    if (cart[item_name].quanity === 0) {
+      quantityDisplay.style.display = "none";
+    }
     updateCart();
   });
 });
@@ -73,9 +78,6 @@ updateCart = () => {
   // Update the cart count in the heading
 
   for (let item in cart) {
-    if (cart[item].quantity === 0) {
-      continue;
-    }
     //Shows that there is at least one item in the cart
     itemChecker = true;
 
@@ -101,13 +103,19 @@ updateCart = () => {
       `;
 
     cartContainer.appendChild(content);
+    // checkoutBtn.style.display = "block";
   }
 
   // If there are no items, show an empty cart message instead
   if (!itemChecker) {
     const emptyMsg = document.createElement("div");
     emptyMsg.classList.add("empty--msg");
-    emptyMsg.textContent = "Your cart is empty. Add something!";
+    emptyMsg.innerHTML = `
+    <img src = "./assets/img/image1.png" alt = "" class= "empty--msg--img"></img>
+    <p>
+    Your added Items will appear here.
+    </p>
+    `;
     cartContainer.appendChild(emptyMsg);
 
     // Hide total and reset cart count
@@ -122,7 +130,9 @@ updateCart = () => {
   cartCount.textContent = `(${totalItems})`;
 
   // Update the total HTML content
-  totalContainer.innerHTML = `<p>Total: $${total.toFixed(2)}</p>`;
+  totalContainer.innerHTML = ` <p><span class = "normal--txt"> Order Total </span> <span class = "price--txt"> $${total.toFixed(
+    2
+  )} </span></p>`;
 
   // Set up remove buttons for each cart item
   const removeButtons = document.querySelectorAll(".cart--remove");
@@ -143,3 +153,28 @@ updateCart = () => {
     });
   });
 };
+
+function initCart() {
+  const cartContainer = document.querySelector(".cart");
+  const totalContainer = document.querySelector(".total");
+  const cartCount = document.querySelector(".cart--number");
+
+  // Clear any existing content just in case
+  cartContainer.innerHTML = "";
+
+  // Create and append the empty cart message
+  const emptyMsg = document.createElement("div");
+  emptyMsg.classList.add("empty--msg");
+  emptyMsg.innerHTML = `
+    <img src="./assets/img/image1.png" alt="" class="empty--msg--img">
+    <p>Your added Items will appear here.</p>
+  `;
+
+  cartContainer.appendChild(emptyMsg);
+
+  // Hide total price container
+  if (totalContainer) totalContainer.style.display = "none";
+
+  // Reset cart count
+  if (cartCount) cartCount.textContent = "(0)";
+}
