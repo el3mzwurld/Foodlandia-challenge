@@ -329,7 +329,7 @@ section {
 
 /*Smaller Hand-held devices(e.g iphones)*/
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   body {
     width: 100%;
     height: auto;
