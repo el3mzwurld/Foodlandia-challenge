@@ -212,6 +212,31 @@ section {
       color: var(--checkout--title);
       font-weight: 500;
     }
+    .total {
+      height: 100px;
+      width: 100%;
+      display: flex;
+      /* flex-direction: row; */
+      margin-bottom: 20px;
+      position: absolute;
+      bottom: 20%;
+      padding: 0px 10px;
+      p {
+        display: flex;
+        justify-content: space-between;
+
+        .normal--txt {
+          font-family: "Red Hat Text", sans-serif;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .price--txt {
+          font-family: "Red Hat Text", sans-serif;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+    }
     .footer--items {
       /* display: none; */
       background-color: white;
@@ -260,7 +285,7 @@ section {
       background-color: transparent;
       .empty--msg {
         width: 100%;
-        height: 100px;
+        height: 250px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -269,13 +294,24 @@ section {
         color: var(--checkout--title);
         font-weight: 500;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        img {
+        }
+        p {
+          font-size: 16px;
+          /* width: 100%; */
+          text-align: center;
+          color: #95827e;
+        }
       }
 
       .content {
         background-color: transparent;
-        height: 40px;
+        height: 45px;
         width: 100%;
-        padding-bottom: 5px;
+        padding-bottom: 10px;
         border-bottom: 0.4px solid gray;
         display: flex;
         flex-direction: row;
@@ -289,23 +325,54 @@ section {
           border-radius: 50%;
           border: 2px solid gray;
           background-color: transparent;
-          color: black;
+          color: lightgray;
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 10px;
+          font-size: 14px;
           font-family: "Poppins", sans-serif;
-          font-weight: 600;
+          font-weight: 700;
+          padding-bottom: 1px;
         }
         .order {
           display: flex;
           flex-direction: column;
           gap: 2px;
 
+          p:nth-child(1) {
+            font-family: "Red Hat Text", sans-serif;
+            font-size: 16px;
+            color: black;
+            font-weight: 600;
+          }
+
           .order--price {
             display: flex;
             flex-direction: row;
             gap: 10px;
+
+            p {
+              font-size: 14px;
+            }
+            p:nth-child(1) {
+              font-family: "Poppins", sans-serif;
+              font-size: 14px;
+              color: var(--checkout--btn);
+              font-weight: 500;
+            }
+            p:nth-child(2) {
+              font-family: "Poppins", sans-serif;
+              font-size: 14px;
+              color: var(--checkout--pricing);
+              font-weight: 400;
+              opacity: 0.7;
+            }
+            p:nth-child(3) {
+              font-family: "Poppins", sans-serif;
+              font-size: 14px;
+              color: var(--checkout--pricing);
+              font-weight: 400;
+            }
           }
         }
       }
@@ -335,10 +402,9 @@ section {
     width: 100%;
     height: auto;
     overflow-y: auto;
-    padding: 20px 0px;
+    padding: 30px 20px;
     background-color: var(--main--bg);
     scroll-behavior: smooth;
-    padding-left: 10px;
   }
 
   section {
