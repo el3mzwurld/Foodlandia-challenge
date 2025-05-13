@@ -342,16 +342,16 @@ section {
   section {
     width: 100%;
     height: auto;
-
     background-color: transparent;
 
     .main {
       width: 100%;
-      height: 3045px;
-      background-color: gray;
+      height: auto;
+      background-color: transparent;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      border: 1px solid black;
 
       .title {
         font-size: 24px;
@@ -364,7 +364,7 @@ section {
         flex: 1;
         display: flex;
         flex-direction: column;
-        column-gap: 10px;
+        position: relative;
         padding: 0px 0px;
 
         .card {
@@ -383,13 +383,35 @@ section {
             padding: 0px 0px;
           }
           .card--info {
+            margin-top: 5px;
+            .def {
+              font-size: 12px;
+            }
+            .title {
+              font-size: 14px;
+            }
+            .pricing {
+              font-size: 14px;
+              font-style: italic;
+            }
+
+            &:hover .def p {
+              color: var(--title--color);
+              font-weight: 500;
+              opacity: 1;
+            }
+            &:hover .title p {
+              color: var(--title--color);
+            }
+            &:hover .pricing p {
+              color: var(--checkout--btn);
+            }
           }
         }
+        .card:nth-child(9) {
+          margin-bottom: 10px;
+        }
       }
-    }
-
-    .checkout {
-      display: none;
     }
   }
 }
