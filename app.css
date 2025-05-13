@@ -342,7 +342,7 @@ section {
   section {
     width: 100%;
     height: auto;
-    overflow-y: auto;
+
     background-color: transparent;
 
     .main {
@@ -365,7 +365,7 @@ section {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        flex-grow: 0;
+
         column-gap: 10px;
         padding: 0px 0px;
 
