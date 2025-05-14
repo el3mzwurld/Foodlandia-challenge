@@ -364,8 +364,8 @@ section {
           width: 20px;
           height: 20px;
           margin-top: 9px;
-          border-radius: 50%;
-          border: 2px solid gray;
+          /* border-radius: 50%; */
+          border: none;
           background-color: transparent;
           color: lightgray;
           display: flex;
@@ -624,6 +624,7 @@ section {
           padding-left: 10px;
           button {
             padding-bottom: 1px;
+            border: none;
           }
         }
 
@@ -777,11 +778,6 @@ section {
             width: 325px;
             height: 235px;
             padding: 0px 0px;
-
-            &:hover {
-              animation-name: mobile-hover;
-              animation-iteration-count: infinite;
-            }
           }
           .card--info {
             margin-top: 5px;
@@ -874,6 +870,7 @@ section {
           background-color: white;
           padding-left: 10px;
           button {
+            border: none;
             padding-bottom: 1px;
           }
         }
@@ -927,17 +924,5 @@ section {
   to {
     transform: translateY(0px);
     opacity: 1;
-  }
-}
-
-@keyframes mobile-hover {
-  from {
-    border-radius: 20px;
-    border: 2px solid rgb(241, 114, 75);
-    animation-direction: normal;
-  }
-  to {
-    border-radius: 12px;
-    border: 1.5px solid var(--title--color);
   }
 }
