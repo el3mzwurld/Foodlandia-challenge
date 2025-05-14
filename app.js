@@ -60,7 +60,6 @@ cards.forEach((card) => {
     quantityDisplay.textContent = cart[item_name].quanity;
     if (cart[item_name].quanity === 0) {
       quantityDisplay.style.display = "none";
-      initCart();
     }
     updateCart();
   });
