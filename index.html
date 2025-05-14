@@ -5,15 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
     <script src="./app.js" defer></script>
+
     <link rel="shortcut icon" href="./assets/ico/foodlandia.png" type="image/x-icon">
     <title>Food Landia: Desserts</title>
+
 </head>
 
 <body>
     <section class="main--container">
         <div class="main">
-            <div class="title">
+            <div class="title" id="top">
                 <h1>Desserts</h1>
             </div>
 
@@ -212,7 +216,7 @@
             <div class="footer--items">
 
                 <div class="carbon--info" id="one">Carbon-neutral delivery</div>
-                <button class="checkout--pay" id="cart--btn">
+                <button class="checkout--pay" id="cart--btn" href="#top">
                     Confirm Order
                 </button>
             </div>
@@ -228,9 +232,28 @@
     <div class="confirmation--modal">
 
         <div class="modal">
+            <div class="modal--header">
+                <div class="title">
+                    <h2>Order Confirmed</h2>
+                    <p>Enjoy your food and have a jolly sweet time!</p>
+                </div>
+                <div class="close">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </div>
+            </div>
+            <div class="model--order">
+                <div class="items"></div>
+                <div class="modal--total"></div>
+
+            </div>
 
         </div>
     </div>
 </body>
 
 </html>
+
+
+<!--  -->
