@@ -112,8 +112,6 @@ updateCart = () => {
 
       cartContainer.appendChild(content);
       // checkoutBtn.style.display = "block";
-    } else {
-      initCart();
     }
   }
 
