@@ -12,56 +12,59 @@ const cards = document.querySelectorAll(".card");
 
 //Loop through each card to define logic for each card
 
-cards.forEach((card) => {
-  //get the name of the dessert
-  const item_name = card.querySelector("#item--title p").textContent;
+document.addEventListener("DOMContentLoaded", function () {
+  // Your code to run after the DOM is fully loaded goes here
+  cards.forEach((card) => {
+    //get the name of the dessert
+    const item_name = card.querySelector("#item--title p").textContent;
 
-  //get the price of the dessert and convert it to a floating point number
-  const item_price = parseFloat(
-    card.querySelector(".pricing p").textContent.replace("$", "")
-  );
+    //get the price of the dessert and convert it to a floating point number
+    const item_price = parseFloat(
+      card.querySelector(".pricing p").textContent.replace("$", "")
+    );
 
-  // Get the + and - buttons, and the quantity display span
-  const incBtn = card.querySelector(".inc");
-  const decBtn = card.querySelector(".dec");
-  const quantityDisplay = card.querySelector(".counter");
+    // Get the + and - buttons, and the quantity display span
+    const incBtn = card.querySelector(".inc");
+    const decBtn = card.querySelector(".dec");
+    const quantityDisplay = card.querySelector(".counter");
 
-  //event lister for the increment button
-  incBtn.addEventListener("click", () => {
-    //check if the item already exists in the cart, if not, initialize it
-    if (!cart[item_name]) {
-      cart[item_name] = {
-        price: item_price,
-        quanity: 0,
-      };
-    }
-    cart[item_name].quanity++;
+    //event lister for the increment button
+    incBtn.addEventListener("click", () => {
+      //check if the item already exists in the cart, if not, initialize it
+      if (!cart[item_name]) {
+        cart[item_name] = {
+          price: item_price,
+          quanity: 0,
+        };
+      }
+      cart[item_name].quanity++;
 
-    quantityDisplay.textContent = cart[item_name].quanity;
-    console.log(cart);
+      quantityDisplay.textContent = cart[item_name].quanity;
+      console.log(cart);
 
-    updateCart();
-  });
-  //event lister for the decrement button
-  decBtn.addEventListener("click", () => {
-    //check if the item already exists in the cart, if not, initialize it
-    if (!cart[item_name]) {
-      cart[item_name] = {
-        price: item_price,
-        quanity: 0,
-      };
-    }
-    //check if the quantity is greater than 0 before decrementing
-    if (cart[item_name].quanity > 0) {
-      cart[item_name].quanity--;
-    } else {
-      return;
-    }
-    quantityDisplay.textContent = cart[item_name].quanity;
-    if (cart[item_name].quanity === 0) {
-      quantityDisplay.style.display = "none";
-    }
-    updateCart();
+      updateCart();
+    });
+    //event lister for the decrement button
+    decBtn.addEventListener("click", () => {
+      //check if the item already exists in the cart, if not, initialize it
+      if (!cart[item_name]) {
+        cart[item_name] = {
+          price: item_price,
+          quanity: 0,
+        };
+      }
+      //check if the quantity is greater than 0 before decrementing
+      if (cart[item_name].quanity > 0) {
+        cart[item_name].quanity--;
+      } else {
+        return;
+      }
+      quantityDisplay.textContent = cart[item_name].quanity;
+      if (cart[item_name].quanity === 0) {
+        quantityDisplay.style.display = "none";
+      }
+      updateCart();
+    });
   });
 });
 
