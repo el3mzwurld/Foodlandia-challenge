@@ -60,6 +60,7 @@ cards.forEach((card) => {
     quantityDisplay.textContent = cart[item_name].quanity;
     if (cart[item_name].quanity === 0) {
       quantityDisplay.style.display = "none";
+      initCart();
     }
     updateCart();
   });
@@ -92,12 +93,12 @@ updateCart = () => {
     const itemTotal = cart[item].quanity * cart[item].price;
     total += itemTotal;
     totalItems += cart[item].quanity;
-
-    //create .content div
-    const content = document.createElement("div");
-    content.classList.add("content");
-    //Add inner HTML TO content div
-    content.innerHTML = ` <div class="order">
+    if (cart[item].quanity > 0) {
+      //create .content div
+      const content = document.createElement("div");
+      content.classList.add("content");
+      //Add inner HTML TO content div
+      content.innerHTML = ` <div class="order">
         <p>${item}</p>
         <div class="order--price">
           <p>${cart[item].quanity}x</p>
@@ -110,8 +111,11 @@ updateCart = () => {
       </div>
       `;
 
-    cartContainer.appendChild(content);
-    // checkoutBtn.style.display = "block";
+      cartContainer.appendChild(content);
+      // checkoutBtn.style.display = "block";
+    } else {
+      initCart();
+    }
   }
 
   // If there are no items, show an empty cart message instead
