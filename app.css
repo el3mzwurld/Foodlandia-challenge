@@ -54,6 +54,54 @@ body {
     animation-duration: 1.8s;
     cursor: pointer;
     border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    column-gap: 18px;
+
+    .modal--header {
+      width: 100%;
+      height: 170px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      border-bottom: 1px solid black;
+
+      .title {
+        margin-left: 40px;
+        font-family: "red hat text";
+        font-size: 30px;
+        color: var(--checkout--pricing);
+
+        p {
+          font-size: 24px;
+          color: var(--card--btn--txt);
+          opacity: 0.6;
+        }
+      }
+
+      span {
+        margin-right: 10px;
+        position: absolute;
+        top: 10%;
+        right: 0%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        border: none;
+        border-radius: 10px;
+        font-weight: 500;
+        color: var(--checkout--btn);
+        width: 60px;
+        height: 60px;
+        text-align: center;
+      }
+    }
+    .modal--order {
+      width: 446px;
+      height: 292px;
+    }
   }
 }
 

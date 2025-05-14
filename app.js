@@ -196,12 +196,22 @@ function initCart() {
 const confirmBtn = document.querySelector(".checkout--pay");
 const modal = document.querySelector(".confirmation--modal");
 const body = document.querySelector(".main--container"); // or a wrapper if you have one
+const closeBtn = document.querySelector(".close");
 
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+  body.classList.remove("blur");
+});
 confirmBtn.addEventListener("click", () => {
   if (Object.keys(cart).length === 0) {
     return;
   } else {
     modal.style.display = "flex"; // or "block", based on how it's styled
     body.classList.add("blur");
+    checkoutModal();
   }
 });
+
+//Populate the checkout modal with the card data
+
+checkoutModal = () => {};
