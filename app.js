@@ -65,6 +65,8 @@ cards.forEach((card) => {
   });
 });
 
+//Update Cart state based on items selected
+//Handle conditions for removal of items from the cart
 updateCart = () => {
   // Select the cart container where items will be displayed
   const cartContainer = document.querySelector(".cart");
@@ -160,6 +162,7 @@ updateCart = () => {
   });
 };
 
+//Initialize cart state
 function initCart() {
   const cartContainer = document.querySelector(".cart");
   const totalContainer = document.querySelector(".total");
@@ -185,11 +188,16 @@ function initCart() {
   if (cartCount) cartCount.textContent = "(0)";
 }
 
+//Confirmation Modal pop up
 const confirmBtn = document.querySelector(".checkout--pay");
 const modal = document.querySelector(".confirmation--modal");
 const body = document.querySelector(".main--container"); // or a wrapper if you have one
 
 confirmBtn.addEventListener("click", () => {
-  modal.style.display = "flex"; // or "block", based on how it's styled
-  body.classList.add("blur");
+  if (Object.keys(cart).length === 0) {
+    return;
+  } else {
+    modal.style.display = "flex"; // or "block", based on how it's styled
+    body.classList.add("blur");
+  }
 });

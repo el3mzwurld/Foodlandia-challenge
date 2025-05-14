@@ -685,6 +685,35 @@ section {
     padding: 20px 20px;
     background-color: var(--main--bg);
     scroll-behavior: smooth;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .confirmation--modal {
+    display: none;
+    height: 88dvh;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    /* background-color: black; */
+    background-color: transparent;
+    margin: 0px 0px;
+    margin-top: 1610px;
+    margin-right: 0px;
+
+    .modal {
+      /* display: none; */
+      border-radius: 0%;
+      border: none;
+      background-color: black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      transition: all 0.5s ease-in;
+      animation-fill-mode: forwards;
+      animation-name: mobile-modal;
+      animation-duration: 0.4s;
+      z-index: 1;
+    }
   }
 
   section {
@@ -748,6 +777,11 @@ section {
             width: 325px;
             height: 235px;
             padding: 0px 0px;
+
+            &:hover {
+              animation-name: mobile-hover;
+              animation-iteration-count: infinite;
+            }
           }
           .card--info {
             margin-top: 5px;
@@ -893,5 +927,17 @@ section {
   to {
     transform: translateY(0px);
     opacity: 1;
+  }
+}
+
+@keyframes mobile-hover {
+  from {
+    border-radius: 20px;
+    border: 2px solid rgb(241, 114, 75);
+    animation-direction: normal;
+  }
+  to {
+    border-radius: 12px;
+    border: 1.5px solid var(--title--color);
   }
 }
