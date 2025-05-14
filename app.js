@@ -3,6 +3,10 @@ const cart = {};
 
 initCart();
 
+if (Object.keys(cart).length === 0) {
+  initCart();
+}
+
 //select all the cards to collect individual information
 const cards = document.querySelectorAll(".card");
 
