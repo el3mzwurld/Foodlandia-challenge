@@ -39,7 +39,7 @@ body {
   display: none;
 
   .modal {
-    width: 593px;
+    width: 601px;
     height: 100%;
     background: white;
 
@@ -56,7 +56,6 @@ body {
     border: 2px solid black;
     display: flex;
     flex-direction: column;
-    column-gap: 18px;
 
     .modal--header {
       width: 100%;
@@ -66,7 +65,7 @@ body {
       justify-content: space-between;
       align-items: center;
       position: relative;
-      border-bottom: 1px solid black;
+      /* border-bottom: 1px solid black; */
 
       .title {
         margin-left: 40px;
@@ -98,9 +97,137 @@ body {
         text-align: center;
       }
     }
+
     .modal--order {
-      width: 446px;
-      height: 292px;
+      width: 450px;
+      height: 320px;
+      background: #fcf8f5;
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0px 25px;
+      padding-top: 5px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .itemtray {
+        width: 100%;
+        max-height: 400px;
+        margin-top: 10px;
+        background-color: transparent;
+        overflow-y: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        flex-direction: column;
+        border-bottom: 1px solid transparent;
+        .content {
+          width: 100%;
+          height: 75px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          background-color: transparent;
+          position: relative;
+          overflow-x: hidden;
+
+          .left {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            position: absolute;
+            left: 0%;
+            font-family: "red hat text", sans-serif;
+            font-size: 18px;
+            img {
+              width: 75px;
+              height: 75px;
+              border-radius: 10px;
+              margin: 2px 5px;
+              opacity: 0.8;
+            }
+
+            .item--info {
+              display: flex;
+              flex-direction: column;
+              margin-left: 15px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-evenly;
+
+              .title {
+                font-size: 18px;
+                font-weight: 600;
+                color: var(--checkout--btn);
+              }
+
+              .details {
+                display: flex;
+                flex-direction: row;
+                p {
+                  margin: 0px 5px;
+                }
+              }
+            }
+          }
+          .right {
+            height: 100%;
+            position: absolute;
+            right: 0%;
+            top: 30%;
+            font-family: "red hat text", sans-serif;
+            font-size: 14px;
+            padding-right: 15px;
+            color: var(--card--btn--txt);
+            font-weight: 600;
+          }
+        }
+      }
+
+      .order--total {
+        width: 100%;
+        height: 55px;
+        background-color: transparent;
+        margin: 0px 0px;
+        padding: 0px 20px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          font-family: "red hat text", sans-serif;
+          font-size: 24px;
+          font-weight: 650;
+          color: #311e17;
+        }
+      }
+    }
+    .order--btn {
+      position: absolute;
+      bottom: 0%;
+      width: 100%;
+      height: 20%;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        width: 60%;
+        height: 48px;
+        font-family: "red hat text", sans-serif;
+        font-size: 20px;
+        color: var(--main--bg);
+        background-color: var(--checkout--btn);
+        border-radius: 100px;
+        border: none;
+      }
     }
   }
 }
@@ -500,10 +627,10 @@ section {
     position: relative;
   }
   .confirmation--modal {
-    display: block;
-    height: 600px;
+    /* display: block; */
+    height: 80dvh;
     width: 100%;
-    /* background-color: black; */
+    /* position: fixed; */
     background-color: transparent;
     margin-top: 1710px;
     display: none;
@@ -517,6 +644,94 @@ section {
       animation-name: mobile-modal;
       animation-duration: 0.4s;
       z-index: 1;
+      position: relative;
+      /* background-color: transparent; */
+      border-top: 1px solid #311e17;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      column-gap: 10px;
+      justify-content: flex-start;
+      gap: 10px;
+      .modal--header {
+        width: 100%;
+        height: 100px;
+        background-color: transparent;
+
+        .title {
+          font-size: 20px;
+
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .modal--order {
+        width: 100%;
+        position: absolute;
+        top: 48%;
+
+        .itemtray {
+          margin-top: 10px;
+          background: transparent;
+          width: 100%;
+
+          .content {
+            background: transparent;
+            width: 325px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+            .left {
+              position: absolute;
+              left: 0%;
+              font-family: "red hat text", sans-serif;
+              font-size: 14px;
+              img {
+                width: 60px;
+                height: 60px;
+                border-radius: 10px;
+                margin: 15px 0px;
+                opacity: 0.8;
+              }
+              .item--info {
+                margin-left: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                .title {
+                  font-size: 18px;
+                  font-weight: 600;
+                  color: var(--checkout--btn);
+                }
+                .details {
+                  p {
+                    margin: 0px 5px;
+                  }
+                }
+              }
+            }
+            .right {
+              position: absolute;
+              right: 0%;
+              top: 30%;
+              font-family: "red hat text", sans-serif;
+              font-size: 14px;
+              padding-right: 15px;
+              color: var(--card--btn--txt);
+              font-weight: 600;
+            }
+          }
+        }
+
+        .order--total {
+          background-color: transparent;
+        }
+      }
     }
   }
 
@@ -754,211 +969,297 @@ section {
       /* display: none; */
       border-radius: 0%;
       border: none;
-      background-color: black;
+      background-color: white;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
+      /* border-top: #311e17; */
       transition: all 0.5s ease-in;
       animation-fill-mode: forwards;
       animation-name: mobile-modal;
       animation-duration: 0.4s;
       z-index: 1;
+      .modal--header {
+        width: 100%;
+        height: 200px;
+        background-color: transparent;
+        display: flex;
+
+        .title {
+          font-size: 24px;
+          display: flex;
+          flex-direction: column;
+          column-gap: 10px;
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+      .modal--order {
+        width: 100%;
+        position: absolute;
+        top: 44%;
+
+        .itemtray {
+          margin-top: 10px;
+          background: transparent;
+          width: 100%;
+
+          .content {
+            background: transparent;
+            width: 325px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+            .left {
+              position: absolute;
+              left: 0%;
+              font-family: "red hat text", sans-serif;
+              font-size: 14px;
+              img {
+                width: 60px;
+                height: 60px;
+                border-radius: 10px;
+                margin: 15px 0px;
+                opacity: 0.8;
+              }
+              .item--info {
+                margin-left: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                .title {
+                  font-size: 18px;
+                  font-weight: 600;
+                  color: var(--checkout--btn);
+                }
+                .details {
+                  p {
+                    margin: 0px 5px;
+                  }
+                }
+              }
+            }
+            .right {
+              position: absolute;
+              right: 0%;
+              top: 30%;
+              font-family: "red hat text", sans-serif;
+              font-size: 14px;
+              padding-right: 15px;
+              color: var(--card--btn--txt);
+              font-weight: 600;
+            }
+          }
+        }
+
+        .order--total {
+          background-color: transparent;
+        }
+      }
+
+      .order--btn {
+        bottom: 10%;
+      }
     }
   }
+}
 
-  section {
+section {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between;
+
+  .main {
     width: 100%;
     height: auto;
     background-color: transparent;
-    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    justify-content: space-between;
-
-    .main {
+    gap: 10px;
+    border: none;
+    .title {
+      font-size: 24px;
+      padding: 0px 0px;
+      padding-left: 5px;
+    }
+    .card--container {
       width: 100%;
-      height: auto;
-      background-color: transparent;
+      height: 100%;
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      border: none;
-      .title {
-        font-size: 24px;
-        padding: 0px 0px;
-        padding-left: 5px;
-      }
-      .card--container {
-        width: 100%;
-        height: 100%;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        padding: 0px 0px;
-        justify-content: center;
-        align-items: center;
+      position: relative;
+      padding: 0px 0px;
+      justify-content: center;
+      align-items: center;
 
-        .card {
-          background-color: transparent;
-          width: 325px;
-          transition: all 0.5s ease-in;
-          animation-fill-mode: forwards;
-          animation-name: mobile-start;
-          animation-duration: 1.5s;
-          height: 317px;
+      .card {
+        background-color: transparent;
+        width: 325px;
+        transition: all 0.5s ease-in;
+        animation-fill-mode: forwards;
+        animation-name: mobile-start;
+        animation-duration: 1.5s;
+        height: 317px;
 
-          .btn--controller {
+        .btn--controller {
+          opacity: 1;
+          background-color: var(--card--btn--border);
+
+          button {
             opacity: 1;
-            background-color: var(--card--btn--border);
-
-            button {
-              opacity: 1;
-            }
-            .counter {
-              opacity: 1;
-              color: white;
-            }
           }
-
-          .card--image {
-            border-radius: 10px;
-            width: 325px;
-            height: 235px;
-            padding: 0px 0px;
-          }
-          .card--info {
-            margin-top: 5px;
-            .def {
-              font-size: 12px;
-            }
-            .title {
-              font-size: 14px;
-            }
-            .pricing {
-              font-size: 14px;
-              font-style: italic;
-            }
-
-            &:hover .def p {
-              color: var(--title--color);
-              font-weight: 500;
-              opacity: 1;
-            }
-            &:hover .title p {
-              color: var(--title--color);
-            }
-            &:hover .pricing p {
-              color: var(--checkout--btn);
-            }
+          .counter {
+            opacity: 1;
+            color: white;
           }
         }
-        .card:nth-child(9) {
-          margin-bottom: 10px;
+
+        .card--image {
+          border-radius: 10px;
+          width: 325px;
+          height: 235px;
+          padding: 0px 0px;
+        }
+        .card--info {
+          margin-top: 5px;
+          .def {
+            font-size: 12px;
+          }
+          .title {
+            font-size: 14px;
+          }
+          .pricing {
+            font-size: 14px;
+            font-style: italic;
+          }
+
+          &:hover .def p {
+            color: var(--title--color);
+            font-weight: 500;
+            opacity: 1;
+          }
+          &:hover .title p {
+            color: var(--title--color);
+          }
+          &:hover .pricing p {
+            color: var(--checkout--btn);
+          }
+        }
+      }
+      .card:nth-child(9) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .checkout {
+    background-color: #ffff;
+    width: 100%;
+    margin-top: 40px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+    padding: 0px 5px;
+    margin-bottom: 0px;
+    position: relative;
+    .title {
+      font-size: 18px;
+
+      span {
+      }
+    }
+    .total {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      /* flex-direction: row; */
+      margin-bottom: 20px;
+
+      p {
+        display: flex;
+        justify-content: space-between;
+
+        .normal--txt {
+          font-family: "Red Hat Text", sans-serif;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .price--txt {
+          font-family: "Red Hat Text", sans-serif;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+    .cart {
+      width: 100%;
+      /* border-top: 0.4px solid gray; */
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      /* gap: 10px; */
+      overflow-y: auto;
+      background-color: transparent;
+      padding: 0px 10px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+
+      .content {
+        background-color: white;
+        padding-left: 10px;
+        button {
+          border: none;
+          padding-bottom: 1px;
+        }
+      }
+
+      .empty--msg {
+        width: 100%;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        column-gap: 2px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        background-color: transparent;
+        transition: 1s ease;
+
+        img {
+        }
+        p {
+          font-size: 10px;
+          width: 100%;
+          text-align: center;
+          color: #95827e;
         }
       }
     }
 
-    .checkout {
-      background-color: #ffff;
+    .footer--items {
+      /* display: none; */
       width: 100%;
-      margin-top: 40px;
-      height: 600px;
-      display: flex;
-      flex-direction: column;
-      column-gap: 20px;
-      padding: 0px 5px;
+      height: 120px;
+      /* background-color: hsl(0, 58%, 57%); */
+      padding: 0px 20px;
+      /* position: fixed; */
       margin-bottom: 0px;
-      position: relative;
-      .title {
-        font-size: 18px;
-
-        span {
-        }
-      }
-      .total {
-        height: 50px;
-        width: 100%;
-        display: flex;
-        /* flex-direction: row; */
-        margin-bottom: 20px;
-
-        p {
-          display: flex;
-          justify-content: space-between;
-
-          .normal--txt {
-            font-family: "Red Hat Text", sans-serif;
-            font-size: 20px;
-            font-weight: bold;
-          }
-          .price--txt {
-            font-family: "Red Hat Text", sans-serif;
-            font-size: 20px;
-            font-weight: bold;
-          }
-        }
-      }
-      .cart {
-        width: 100%;
-        /* border-top: 0.4px solid gray; */
-        height: 200px;
-        display: flex;
-        flex-direction: column;
-        /* gap: 10px; */
-        overflow-y: auto;
-        background-color: transparent;
-        padding: 0px 10px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        position: relative;
-
-        .content {
-          background-color: white;
-          padding-left: 10px;
-          button {
-            border: none;
-            padding-bottom: 1px;
-          }
-        }
-
-        .empty--msg {
-          width: 100%;
-          height: 150px;
-          display: flex;
-          flex-direction: column;
-          column-gap: 2px;
-          justify-content: center;
-          align-items: center;
-          margin-bottom: 10px;
-          background-color: transparent;
-          transition: 1s ease;
-
-          img {
-          }
-          p {
-            font-size: 10px;
-            width: 100%;
-            text-align: center;
-            color: #95827e;
-          }
-        }
-      }
-
-      .footer--items {
+      .carbon--info {
         /* display: none; */
-        width: 100%;
-        height: 120px;
-        /* background-color: hsl(0, 58%, 57%); */
-        padding: 0px 20px;
-        /* position: absolute; */
-        margin-bottom: 0px;
-        .carbon--info {
-          /* display: none; */
-        }
-        button {
-        }
+      }
+      button {
       }
     }
   }

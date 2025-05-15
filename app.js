@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
   cards.forEach((card) => {
     //get the name of the dessert
     const item_name = card.querySelector("#item--title p").textContent;
+    //get the images of the cards
+    const item_img = card.querySelector(".card--image").src;
 
     //get the price of the dessert and convert it to a floating point number
     const item_price = parseFloat(
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cart[item_name] = {
           price: item_price,
           quanity: 0,
+          image: item_img,
         };
       }
       cart[item_name].quanity++;
@@ -51,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cart[item_name] = {
           price: item_price,
           quanity: 0,
+          image: item_img,
         };
       }
       //check if the quantity is greater than 0 before decrementing
@@ -214,4 +218,66 @@ confirmBtn.addEventListener("click", () => {
 
 //Populate the checkout modal with the card data
 
-checkoutModal = () => {};
+checkoutModal = () => {
+  document.querySelector(".modal");
+  const item_tray = modal.querySelector(".itemtray"); //grab item-tray not working
+  const order_total = modal.querySelector("#total");
+
+  //Remove all the items from the container
+  item_tray.innerHTML = "";
+
+  let finalTotal = 0;
+
+  for (item in cart) {
+    const itemData = cart[item];
+    const itemTotal = itemData.quanity * itemData.price;
+    finalTotal += itemTotal;
+
+    const content = document.createElement("div");
+    content.classList.add("content");
+
+    content.innerHTML = `
+      <div class="left">
+        <img src="${itemData.image}" alt="img" class="modal--image">
+        <div class="item--info">
+          <div class="title">${item}</div>
+          <div class="details">
+            <p>${itemData.quanity}x</p>
+            <p>@ $${itemData.price.toFixed(2)}</p>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <p>$${itemTotal.toFixed(2)}</p>
+      </div>
+    `;
+    item_tray.appendChild(content);
+  }
+
+  order_total.textContent = `$${finalTotal.toFixed(2)}`;
+
+  const resetBtn = modal.querySelector("#cart--reset");
+
+  resetBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    body.classList.remove("blur");
+    resetCart();
+  });
+};
+
+function resetCart() {
+  const cartContent = body.querySelector(".cart");
+  cartContent.innerHTML = "";
+
+  for (item in cart) {
+    delete cart[item];
+  }
+
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    const counter = card.querySelector(".counter");
+
+    counter.textContent = "";
+  });
+  updateCart();
+}
