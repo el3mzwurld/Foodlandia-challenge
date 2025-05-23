@@ -495,7 +495,7 @@ section {
     .cart {
       width: 100%;
       /* border-top: 0.4px solid gray; */
-      max-height: 400px;
+      max-height: 350px;
       display: flex;
       flex-direction: column;
       /* gap: 10px; */
