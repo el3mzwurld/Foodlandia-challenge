@@ -265,8 +265,10 @@ checkoutModal = () => {
   });
 };
 
+//Function to reset the cart after confirming order
 function resetCart() {
   const cartContent = body.querySelector(".cart");
+  document.location.href = "./index.html";
   cartContent.innerHTML = "";
 
   for (item in cart) {
