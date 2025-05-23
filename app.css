@@ -434,6 +434,7 @@ section {
       height: 100px;
       width: 100%;
       display: flex;
+      background-color: white;
       /* flex-direction: row; */
       margin-bottom: 20px;
       position: absolute;
